@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diya ❤️ Our Museum</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#100b18;color:white;font-family:Arial,sans-serif;overflow:hidden}
+header{position:absolute;top:12px;left:0;right:0;text-align:center;z-index:5}
+h1{color:#ffd5e5;font-size:24px;margin:0}
+p{font-size:13px}
+#scene{height:100vh;width:100vw;perspective:700px;overflow:hidden;background:linear-gradient(#24162f,#100b18)}
+.room{position:absolute;width:900px;height:600px;left:50%;top:50%;transform:translate(-50%,-40%) rotateX(8deg);transform-style:preserve-3d}
+.wall{position:absolute;background:linear-gradient(135deg,#56364f,#24172f);border:5px solid #a77a8f}
+.back{width:900px;height:450px;left:0;top:0;transform:translateZ(-300px)}
+.floor{position:absolute;width:900px;height:600px;top:250px;left:0;background:repeating-linear-gradient(90deg,#39283e 0 95px,#4b344b 96px 100px);transform:rotateX(90deg) translateZ(-300px);transform-origin:top}
+.frame{position:absolute;top:95px;width:140px;height:180px;background:#160f20;border:8px solid #e9c78b;box-shadow:0 0 22px #ffb6d9;text-align:center;padding:10px}
+.frame span{display:block;margin-top:35px;font-size:42px}
+.frame small{display:block;margin-top:14px;color:#ffd5e5}
+.f1{left:90px}.f2{left:380px}.f3{left:670px}
+.door{position:absolute;bottom:0;left:370px;width:160px;height:230px;border:8px solid #e9c78b;background:#1a1023;text-align:center;padding-top:70px;color:#ffd5e5}
+#controls{position:absolute;bottom:22px;left:0;right:0;display:flex;justify-content:center;gap:12px;z-index:5}
+button{border:1px solid #e9c78b;border-radius:14px;background:#39233e;color:white;padding:14px 18px;font-size:18px}
+#message{position:absolute;bottom:95px;left:0;right:0;text-align:center;color:#ffd5e5;z-index:5}
+</style>
+</head>
+<body>
+<header><h1>❤️ Diya & Basil ❤️</h1><p>OUR LITTLE MUSEUM</p></header>
+<div id="scene">
+<div class="room" id="room">
+<div class="wall back"></div><div class="floor"></div>
+<div class="frame f1"><span>💗</span><small>Our Memories</small></div>
+<div class="frame f2"><span>🫂</span><small>Our Story</small></div>
+<div class="frame f3"><span>🎬</span><small>Our Theater</small></div>
+<div class="door">🎥<br>THEATER</div>
+</div></div>
+<div id="message">Diya, this little world is made with love ❤️</div>
+<div id="controls">
+<button onclick="move(-35)">⬅️</button>
+<button onclick="move(35)">➡️</button>
+<button onclick="turn(-10)">↶</button>
+<button onclick="turn(10)">↷</button>
+</div>
+<script>
+let x=0,r=0;
+function move(n){x=Math.max(-220,Math.min(220,x+n));document.getElementById('room').style.left=`calc(50% + ${x}px)`;}
+function turn(n){r+=n;document.getElementById('room').style.transform=`translate(calc(-50% + ${x}px),-40%) rotateX(8deg) rotateY(${r}deg)`;}
+</script>
+</body>
+</html>
